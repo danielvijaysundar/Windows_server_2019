@@ -1,7 +1,7 @@
 # Starter pipeline
--task: Docker@2
+- task: Docker@2
   inputs:
-    containerRegistry: 'winserver'
-    repository: 'win2019core'
+    containerRegistry: 'myconnection'
+    repository: 'containerrepo'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
