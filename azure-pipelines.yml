@@ -13,6 +13,6 @@ steps:
   displayName: Build and push an image to container registry
   inputs:
     command: buildAndPush
-    repository: 'containerrepo'
+    repository: $(imageName)
     dockerfile: ./Dockerfile
     containerRegistry: myconnection
