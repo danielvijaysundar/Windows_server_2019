@@ -1,3 +1,4 @@
+...
 # Starter pipeline
 - task: Docker@2
   inputs:
