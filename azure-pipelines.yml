@@ -1,8 +1,13 @@
-...
 # Starter pipeline
-- task: Docker@2
-  inputs:
-    containerRegistry: 'myconnection'
-    repository: 'containerrepo'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+stage: Build
+  displayName: Build and push stage
+  jobs:  
+  - job: Build
+    displayName: Build job
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        dockerfile: '**/Dockerfile'
+        containerRegistry: 'myconnection'
