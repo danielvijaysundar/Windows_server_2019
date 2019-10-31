@@ -9,7 +9,6 @@ pool:
 variables:
   imageName: 'pipelines-Windows-server-2019'
 
-steps:
 - stage: Build
   displayName: Build and push stage
   jobs:  
