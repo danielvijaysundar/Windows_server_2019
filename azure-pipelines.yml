@@ -1,13 +1,27 @@
 # Starter pipeline
-stage: Build
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-2019'
+
+
+variables:
+  imageName: 'pipelines-Windows-server-2019'
+
+steps:
+- stage: Build
   displayName: Build and push stage
   jobs:  
   - job: Build
     displayName: Build job
+    pool:
+      vmImage: $(vmImageName)
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
         command: buildAndPush
-        dockerfile: '**/Dockerfile'
-        containerRegistry: 'myconnection'
+        repository: 'containerrepo'
+        dockerfile: ./Dockerfile
+        containerRegistry: myconnection
